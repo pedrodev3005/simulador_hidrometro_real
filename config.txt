@@ -1,0 +1,4 @@
+nivel_entrada=5000.0
+bitola_entrada=200.0
+bitola_saida=1.5
+delta_t_imagem=1000
