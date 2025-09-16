@@ -12,15 +12,15 @@ int main() {
 
         // 2. ADICIONAR OS ELEMENTOS (DRAWING)
         const unsigned char cor_texto[] = {0, 0, 0};
-        std::string texto_contador = "1234.56";
+        std::string texto_contador = "1   2  3  4   5  6";
 
         imagem_modificada.draw_text(
-            150, 200,                
+            295, 310,                
             texto_contador.c_str(),  
             cor_texto,               
             0,                       
             1.0,                     
-            20                       
+            30                       
         );
         
         // 3. SALVAR A IMAGEM
