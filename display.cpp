@@ -87,7 +87,7 @@ void Display::exibir(float valor) {
     }
 }
 // Metodo que salva a imagem
-void Display::gerarImagem(float contador, float vazao) {
+void Display::salvarImagem(float contador, float vazao) {
     // Este metodo agora so precisa salvar a imagem
     if (janelaDisplay) {
         std::string nomeArquivo = this->caminhoSaida + "/hidrometro_" + std::to_string(static_cast<int>(contador)) + ".bmp";

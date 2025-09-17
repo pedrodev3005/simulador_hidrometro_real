@@ -55,7 +55,7 @@ void Hidrometro::iniciarSimulacao() {
     // Usa o chrono para controlar o tempo e gerar as imagens
     auto ultimaAtualizacao = std::chrono::steady_clock::now();
 
-    while ((!display.estaFechado()) || this->contador >=999999) {
+    while (!display.estaFechado() && this->contador <=9999.0f) {
         calcularVazao();
         atualizarContador();
 
@@ -66,7 +66,7 @@ void Hidrometro::iniciarSimulacao() {
         if (duracao >= deltaTImagem) {
             display.exibir(this->contador);
             std::cout << "Gerando imagem do hidrometro..." << std::endl;
-            display.gerarImagem(this->contador, this->vazaoAtual);
+            display.salvarImagem(this->contador, this->vazaoAtual);
             ultimaAtualizacao = agora;
         }
 
