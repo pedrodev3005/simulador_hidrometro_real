@@ -15,6 +15,7 @@ private:
     CImg<unsigned char> imagemDeFundo;
     CImgDisplay *janelaDisplay;
     std::string caminhoSaida; // Novo atributo para o caminho da pasta
+    CImg<unsigned char> imagemAtual; // Novo atributo para a imagem mais recente
 
 public:
     // CImgDisplay *janelaDisplay;

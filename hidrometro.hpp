@@ -17,7 +17,6 @@ private:
     Display& display;
 
 public:
-    // Construtor
     Hidrometro(Entrada& entrada, Saida& saida, Display& display);
 
     // Metodos

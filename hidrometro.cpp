@@ -3,7 +3,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-#include <algorithm> // Para usar std::min
+#include <algorithm> 
 
 Hidrometro::Hidrometro(Entrada& entrada, Saida& saida, Display& display)
     : entrada(entrada),
@@ -58,7 +58,6 @@ void Hidrometro::iniciarSimulacao() {
     while ((!display.estaFechado()) || this->contador >=999999) {
         calcularVazao();
         atualizarContador();
-        //display.exibir(this->contador);
 
         auto agora = std::chrono::steady_clock::now();
         auto duracao = std::chrono::duration_cast<std::chrono::milliseconds>(agora - ultimaAtualizacao).count();

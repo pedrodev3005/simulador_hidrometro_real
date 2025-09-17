@@ -33,7 +33,7 @@ int main() {
         std::string caminhoImagemFundo = config.obterParametro("caminho_imagem_fundo");
         std::string caminhoSaida = config.obterParametro("caminho_saida_imagens");
 
-        // NOVO: Criar a pasta de saida se ela nao existir
+        // Criar a pasta de saida se ela nao existir
         if (!std::filesystem::exists(caminhoSaida)) {
             std::cout << "Criando pasta de saida: " << caminhoSaida << std::endl;
             std::filesystem::create_directory(caminhoSaida);
