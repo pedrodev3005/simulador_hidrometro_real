@@ -10,6 +10,7 @@ private:
     float contador;
     float vazaoAtual;
     bool simulandoFaltaAgua;
+    float fatorEscalaVazao;
 
     Entrada& entrada;
     Saida& saida;

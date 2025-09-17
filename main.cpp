@@ -2,12 +2,13 @@
 #include <string>
 #include <stdexcept>
 
-// Inclua os cabecalhos de todas as classes
+//cabecalhos de todas as classes
 #include "Configuracao.hpp"
 #include "Entrada.hpp"
 #include "Saida.hpp"
 #include "Display.hpp"
 #include "Hidrometro.hpp"
+#include <filesystem> 
 
 // Funcao auxiliar para converter string para float de forma segura
 float stringToFloat(const std::string& str) {
@@ -29,15 +30,23 @@ int main() {
         float bitolaEntrada = stringToFloat(config.obterParametro("bitola_entrada"));
         float bitolaSaida = stringToFloat(config.obterParametro("bitola_saida"));
         int deltaTImagem = std::stoi(config.obterParametro("delta_t_imagem"));
-        
+        std::string caminhoImagemFundo = config.obterParametro("caminho_imagem_fundo");
+        std::string caminhoSaida = config.obterParametro("caminho_saida_imagens");
+
+        // NOVO: Criar a pasta de saida se ela nao existir
+        if (!std::filesystem::exists(caminhoSaida)) {
+            std::cout << "Criando pasta de saida: " << caminhoSaida << std::endl;
+            std::filesystem::create_directory(caminhoSaida);
+        }
+
         Entrada entrada;
         entrada.definirNivel(nivelEntrada);
         entrada.definirBitola(bitolaEntrada);
         
         Saida saida(bitolaSaida);
         
-        // Agora, a classe Display eh criada com o parametro deltaTImagem
-        Display display(deltaTImagem);
+        // Agora, a classe Display eh criada com o parametro deltaTImagem e o caminho da imagem de fundo e o caminho da pasta de saida
+        Display display(deltaTImagem, caminhoImagemFundo, caminhoSaida);
 
         // 3. Injetar as dependencias no Hidrometro
         Hidrometro hidrometro(entrada, saida, display);

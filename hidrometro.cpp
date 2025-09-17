@@ -1,4 +1,5 @@
 #include "Hidrometro.hpp"
+#include "display.hpp"
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -27,12 +28,12 @@ void Hidrometro::calcularVazao() {
     if (simulandoFaltaAgua) {
         this->vazaoAtual = nivelEntrada * 0.05f; // 5% do valor original, por exemplo
     } else {
-        this->vazaoAtual = nivelEntrada * menorBitola * 0.1f; 
+        this->vazaoAtual = nivelEntrada * (menorBitola * menorBitola) *  0.0000001f; 
     }
 }
 
 void Hidrometro::atualizarContador() {
-    this->contador += this->vazaoAtual;
+    this->contador += this->vazaoAtual * 0.050f; // Incrementa o contador em m3
 }
 
 void Hidrometro::simularFaltaAgua(bool estado) {
@@ -46,6 +47,7 @@ void Hidrometro::simularFaltaAgua(bool estado) {
 
 void Hidrometro::iniciarSimulacao() {
     std::cout << "Iniciando simulacao ininterrupta..." << std::endl;
+    display.exibir(0.0);
 
     // Obtem o delta T da imagem da classe Display
     int deltaTImagem = display.obterDeltaTImagem(); 
@@ -53,21 +55,22 @@ void Hidrometro::iniciarSimulacao() {
     // Usa o chrono para controlar o tempo e gerar as imagens
     auto ultimaAtualizacao = std::chrono::steady_clock::now();
 
-    while (true) {
+    while ((!display.estaFechado()) || this->contador >=999999) {
         calcularVazao();
         atualizarContador();
-        display.exibir(this->contador);
+        //display.exibir(this->contador);
 
         auto agora = std::chrono::steady_clock::now();
         auto duracao = std::chrono::duration_cast<std::chrono::milliseconds>(agora - ultimaAtualizacao).count();
 
         // Checa se ja passou o tempo para gerar a imagem
         if (duracao >= deltaTImagem) {
+            display.exibir(this->contador);
             std::cout << "Gerando imagem do hidrometro..." << std::endl;
             display.gerarImagem(this->contador, this->vazaoAtual);
             ultimaAtualizacao = agora;
         }
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Simula o tempo
+        std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Simula o tempo
     }
 }

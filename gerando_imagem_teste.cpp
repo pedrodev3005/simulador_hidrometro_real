@@ -35,6 +35,8 @@ int main() {
         while (!display.is_closed()) {
             display.wait();
         }
+
+        
     
     } catch (const CImgException& e) {
         std::cerr << "Erro: " << e.what() << std::endl;
