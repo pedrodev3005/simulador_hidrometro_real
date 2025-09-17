@@ -3,4 +3,4 @@ bitola_entrada=100
 bitola_saida=150
 delta_t_imagem=1000
 caminho_imagem_fundo=hidrometro_base.bmp
-caminho_saida_imagens=saida_imagens
+caminho_saida_imagens=Medições_202311250031
