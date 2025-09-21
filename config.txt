@@ -1,6 +1,6 @@
 nivel_entrada=500.0
 bitola_entrada=100
 bitola_saida=150
-delta_t_imagem=1000
+delta_t_imagem=0
 caminho_imagem_fundo=hidrometro_base.bmp
 caminho_saida_imagens=Medições_202311250031

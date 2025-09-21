@@ -27,7 +27,7 @@ public:
     void exibir(float valor);
 
     // Metodo para salvar a "imagem" do hidrometro
-    void salvarImagem(float contador, float vazao);
+    void salvarImagem(float contador);
     
     // Metodo para obter o delta T da imagem, que a classe Hidrometro precisa
     int obterDeltaTImagem();

@@ -1,6 +1,6 @@
 #include "Entrada.hpp"
 
-Entrada::Entrada() : NivelEntradaAgua(0.0f) {}
+Entrada::Entrada() : NivelEntradaAgua(0.0f), Largurabitola(0.0f) {}
 
 void Entrada::definirNivel(float nivel){
   if (nivel >= 0.0f)
