@@ -3,7 +3,7 @@
 
 class Entrada
 {
-private:
+protected:
   float NivelEntradaAgua;
   float Largurabitola;
 

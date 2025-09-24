@@ -8,7 +8,7 @@
 using namespace cimg_library;
 
 class Display {
-private:
+protected:
     std::string valorDisplay;
     int deltaTImagem;
     // Atributo para armazenar a imagem de fundo

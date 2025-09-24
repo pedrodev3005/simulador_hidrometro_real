@@ -6,7 +6,7 @@
 #include <stdexcept>
 
 class Configuracao {
-private:
+protected:
     std::string caminhoArquivo;
     std::map<std::string, std::string> parametros;
 

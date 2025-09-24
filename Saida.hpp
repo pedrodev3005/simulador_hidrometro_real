@@ -4,7 +4,7 @@
 
 class Saida
 {
-private:
+protected:
   float tamanho_bitola_saida;
 
 public:

@@ -6,7 +6,7 @@
 #include "Display.hpp"
 
 class Hidrometro {
-private:
+protected:
     float contador;
     float vazaoAtual;
     bool simulandoFaltaAgua;
