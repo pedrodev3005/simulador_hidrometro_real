@@ -1,5 +1,8 @@
 # Simulador de Hidrômetro em C++
 
+## Link para UML:
+https://lucid.app/lucidchart/e712c1ac-8e51-45b2-b6af-526e88b22742/edit?viewport_loc=-3670%2C-1861%2C5488%2C2814%2C0_0&invitationId=inv_19be3681-50d6-46c9-b481-669c5624923d
+
 ## Visão Geral do Projeto
 
 Este projeto é um simulador de hidrômetro modular, desenvolvido em C++ com uma arquitetura orientada a objetos. Ele foi projetado para simular o funcionamento de um hidrômetro, calculando o consumo de água, e gerando uma representação visual do seu mostrador. O simulador se comporta como um dispositivo que pode ser "observado" por outros softwares para obter leituras de consumo.
