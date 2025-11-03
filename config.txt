@@ -1,6 +1,6 @@
 nivel_entrada=500.0
 bitola_entrada=100
 bitola_saida=150
-delta_t_imagem=0
+delta_t_imagem=500
 caminho_imagem_fundo=hidrometro_base.bmp
-caminho_saida_imagens=Medições_202311250031
+caminho_saida_imagens=Medicoes_Simulador
