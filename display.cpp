@@ -92,7 +92,6 @@ void Display::salvarImagem(float contador) {
     if (janelaDisplay) {
         std::string nomeArquivo = this->caminhoSaida + "/hidrometro_" + std::to_string(static_cast<int>(contador)) + ".bmp";
         imagemAtual.save(nomeArquivo.c_str());
-        std::cout << "IMAGEM GERADA: " << nomeArquivo << std::endl;
     }
 }
 // Metodo para retornar o delta T
