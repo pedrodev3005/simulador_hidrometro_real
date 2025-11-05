@@ -65,7 +65,6 @@ void Hidrometro::iniciarSimulacao() {
         // Checa se ja passou o tempo para gerar a imagem
         if (duracao >= deltaTImagem) {
             display.exibir(this->contador);
-            std::cout << "Gerando imagem do hidrometro..." << std::endl;
             display.salvarImagem(this->contador);
             ultimaAtualizacao = agora;
         }
