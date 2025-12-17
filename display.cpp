@@ -1,7 +1,9 @@
 #include "Display.hpp"
 #include <iostream>
-#include <string>
 #include <cmath>
+#include <string>
+#include <fstream>  
+#include <iomanip>  
 
 // Construtor que recebe o delta T da imagem
 Display::Display(int deltaTImagem, const std::string& caminhoImagem, const std::string& caminhoSaida): deltaTImagem(deltaTImagem), valorDisplay("0.0"), caminhoSaida(caminhoSaida), janelaDisplay(nullptr) {
@@ -86,14 +88,23 @@ void Display::exibir(float valor) {
         janelaDisplay->display(imagemAtualizada);
     }
 }
+
 // Metodo que salva a imagem
 void Display::salvarImagem(float contador) {
     // Este metodo agora so precisa salvar a imagem
     if (janelaDisplay) {
         std::string nomeArquivo = this->caminhoSaida + "/hidrometro_" + std::to_string(static_cast<int>(contador)) + ".bmp";
         imagemAtual.save(nomeArquivo.c_str());
+        
+        std::string nomeArquivoTxt = this->caminhoSaida + "/hidrometro_" + std::to_string(static_cast<int>(contador)) + ".txt";
+        std::ofstream arquivoValor(nomeArquivoTxt);
+        if (arquivoValor.is_open()) {
+            arquivoValor << std::fixed << std::setprecision(3) << contador;
+            arquivoValor.close();
+        }
     }
 }
+
 // Metodo para retornar o delta T
 int Display::obterDeltaTImagem() {
     return this->deltaTImagem;
